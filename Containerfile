@@ -148,6 +148,8 @@ COPY --from=builder /base/usr/lib/ /usr/lib/
 COPY --from=builder /base/usr/share/ /usr/share/
 COPY --from=builder /base/usr/bin/ /usr/bin/
 
+ENV PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+
 LABEL org.opencontainers.image.title="distroless python"
 LABEL org.opencontainers.image.description="distroless python"
 LABEL org.opencontainers.image.version="${PYTHON_VERSION}"
