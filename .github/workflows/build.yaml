@@ -6,11 +6,6 @@ on:
     paths:
       - Containerfile
       - versions.yaml
-  pull_request:
-    branches: [ "main" ]
-    paths:
-      - Containerfile
-      - versions.yaml
   workflow_dispatch:
 
 jobs:
