@@ -20,6 +20,7 @@ jobs:
         uses: nick-fields/retry@v4
         with:
           max_attempts: 5
+          timeout_minutes: 10
           command: |
             set -uo pipefail
             PYTHON=$(git ls-remote --tags https://github.com/python/cpython.git/  \
