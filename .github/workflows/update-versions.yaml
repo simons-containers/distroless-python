@@ -26,22 +26,22 @@ jobs:
             PYTHON=$(git ls-remote --tags https://github.com/python/cpython.git/  \
               | awk -F/ '{print $3}' | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' \
               | sed 's/^v//' | sort -V | tail -1)
-            GCC=$(curl -s https://ftp.gnu.org/gnu/gcc/ \
+            GCC=$(curl -sf https://ftp.gnu.org/gnu/gcc/ \
               | grep -o 'gcc-[0-9]\+\.[0-9]\+\.[0-9]\+/' \
               | sed 's#gcc-##; s#/##' \
               | sort -V | tail -n 1)
-            ZLIB=$(curl -s https://zlib.net/ \
+            ZLIB=$(curl -sf https://zlib.net/ \
               | grep -o 'zlib-[0-9]\+\.[0-9]\+\(\.[0-9]\+\)\?\.tar\.gz' \
               | sed 's/zlib-//; s/\.tar\.gz//' \
               | sort -V | tail -n 1)
             OPENSSL=$(git ls-remote --tags https://github.com/openssl/openssl \
               | awk -F/ '/[0-9]$/  && /openssl-/ && ! /-[a-z]/ {gsub("openssl-", ""); print $3}' \
               | sort -V | grep -Ev '^4' | tail -1)
-            READLINE=$(curl -s https://ftp.gnu.org/gnu/readline/ \
+            READLINE=$(curl -sf https://ftp.gnu.org/gnu/readline/ \
               | grep -Eo 'readline-[0-9]+(\.[0-9]+)*\.tar\.gz' \
               | sed -E 's/readline-([0-9.]+)\.tar\.gz/\1/' \
               | sort -uV | tail -1)
-            NCURSES=$(curl -s https://ftp.gnu.org/gnu/ncurses/ \
+            NCURSES=$(curl -sf https://ftp.gnu.org/gnu/ncurses/ \
               | grep -Eo 'ncurses-[0-9]+(\.[0-9]+)*\.tar\.gz' \
               | sed -E 's/ncurses-([0-9.]+)\.tar\.gz/\1/' \
               | sort -uV | tail -1)
