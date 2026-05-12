@@ -20,7 +20,7 @@ ARG LIBFFI_SOURCE=https://github.com/libffi/libffi/releases/download/v${LIBFFI_V
 ARG BZIP2_SOURCE=https://sourceware.org/pub/bzip2/bzip2-${BZIP2_VERSION}.tar.gz
 ARG XZ_SOURCE=https://tukaani.org/xz/xz-${XZ_VERSION}.tar.gz
 
-RUN pacman -Sy --noconfirm python wget >/dev/null
+RUN pacman -Syu --noconfirm python wget >/dev/null
 
 WORKDIR /build/gcc
 RUN curl --silent --show-error --location --output gcc.tar.gz \
