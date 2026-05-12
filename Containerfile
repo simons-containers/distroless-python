@@ -1,4 +1,4 @@
-FROM archlinux:base-devel-20260308.0.497099 AS builder
+FROM archlinux:base-devel-20260510.0.525573 AS builder
 
 ARG PYTHON_VERSION
 ARG GCC_VERSION
