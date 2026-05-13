@@ -6,6 +6,7 @@ Bare-bones distroless Python container image.
 
 | Build Arg | Description |
 |---|---|
+| `PYTHON_VERSION` | Version of python to use
 | `GCC_VERSION` | Version of gcc to use
 | `ZLIB_VERSION` | Version of zlib to use
 | `OPENSSL_VERSION` | Version of openssl to use
