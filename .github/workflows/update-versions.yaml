@@ -58,16 +58,29 @@ jobs:
             : "${PYTHON:?empty}" "${GCC:?empty}" "${ZLIB:?empty}" "${OPENSSL:?empty}" "${READLINE:?empty}"
             : "${NCURSES:?empty}" "${LIBFFI:?empty}" "${BZIP2:?empty}" "${XZ:?empty}"
             
-            yq -i ".python= \"$PYTHON\"" versions.yaml
-            yq -i ".gcc= \"$GCC\"" versions.yaml
-            yq -i ".zlib= \"$ZLIB\"" versions.yaml
-            yq -i ".openssl= \"$OPENSSL\"" versions.yaml
-            yq -i ".readline= \"$READLINE\"" versions.yaml
-            yq -i ".ncurses= \"$NCURSES\"" versions.yaml
-            yq -i ".libffi= \"$LIBFFI\"" versions.yaml
-            yq -i ".bzip2= \"$BZIP2\"" versions.yaml
-            yq -i ".xz= \"$XZ\"" versions.yaml
-            git diff versions.yaml
+            jq \
+              --arg python "$PYTHON" \
+              --arg gcc "$GCC" \
+              --arg zlib "$ZLIB" \
+              --arg openssl "$OPENSSL" \
+              --arg readline "$READLINE" \
+              --arg ncurses "$NCURSES" \
+              --arg libffi "$LIBFFI" \
+              --arg bzip2 "$BZIP2" \
+              --arg xz "$XZ" \
+              '
+                .python.version = $python |
+                .gcc.version = $gcc |
+                .zlib.version = $zlib |
+                .openssl.version = $openssl |
+                .readline.version = $readline |
+                .ncurses.version = $ncurses |
+                .libffi.version = $libffi |
+                .bzip2.version = $bzip2 |
+                .xz.version  = $xz
+              ' sources.json > tmp.json && mv tmp.json sources.json
+
+            git diff sources.json
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8

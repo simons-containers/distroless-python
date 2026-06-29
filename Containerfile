@@ -10,15 +10,15 @@ ARG LIBFFI_VERSION
 ARG BZIP2_VERSION
 ARG XZ_VERSION
 
-ARG PYTHON_SOURCE=https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
-ARG GCC_SOURCE=https://ftp.gnu.org/gnu/gcc/gcc-${GCC_VERSION}/gcc-${GCC_VERSION}.tar.xz
-ARG ZLIB_SOURCE=https://zlib.net/zlib-${ZLIB_VERSION}.tar.gz
-ARG OPENSSL_SOURCE=https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz
-ARG NCURSES_SOURCE=https://ftp.gnu.org/pub/gnu/ncurses/ncurses-${NCURSES_VERSION}.tar.gz
-ARG READLINE_SOURCE=https://ftp.gnu.org/pub/gnu/readline/readline-${READLINE_VERSION}.tar.gz
-ARG LIBFFI_SOURCE=https://github.com/libffi/libffi/releases/download/v${LIBFFI_VERSION}/libffi-${LIBFFI_VERSION}.tar.gz
-ARG BZIP2_SOURCE=https://sourceware.org/pub/bzip2/bzip2-${BZIP2_VERSION}.tar.gz
-ARG XZ_SOURCE=https://tukaani.org/xz/xz-${XZ_VERSION}.tar.gz
+ARG PYTHON_SOURCE
+ARG GCC_SOURCE
+ARG ZLIB_SOURCE
+ARG OPENSSL_SOURCE
+ARG NCURSES_SOURCE
+ARG READLINE_SOURCE
+ARG LIBFFI_SOURCE
+ARG BZIP2_SOURCE
+ARG XZ_SOURCE
 
 RUN pacman -Syu --noconfirm python wget >/dev/null
 

@@ -1,0 +1,66 @@
+{
+  "python": {
+    "version": "3.14.6",
+    "purl": "pkg:generic/python",
+    "source": {
+      "url_pattern": "https://www.python.org/ftp/python/{version}/Python-{version}.tgz"
+    }
+  },
+  "gcc": {
+    "version": "16.1.0",
+    "purl": "pkg:generic/gcc",
+    "source": {
+      "url_pattern": "https://ftp.gnu.org/gnu/gcc/gcc-{version}/gcc-{version}.tar.xz"
+    }
+  },
+  "zlib": {
+    "version": "1.3.2",
+    "purl": "pkg:generic/zlib",
+    "source": {
+      "url_pattern": "https://zlib.net/zlib-{version}.tar.gz"
+    }
+  },
+  "openssl": {
+    "version": "3.6.3",
+    "purl": "pkg:generic/openssl",
+    "source": {
+      "url_pattern": "https://www.openssl.org/source/openssl-{version}.tar.gz"
+    }
+  },
+  "readline": {
+    "version": "8.3",
+    "purl": "pkg:generic/readline",
+    "source": {
+      "url_pattern": "https://ftp.gnu.org/pub/gnu/readline/readline-{version}.tar.gz"
+    }
+  },
+  "ncurses": {
+    "version": "6.6",
+    "purl": "pkg:generic/ncurses",
+    "source": {
+      "url_pattern": "https://ftp.gnu.org/pub/gnu/ncurses/ncurses-{version}.tar.gz"
+    }
+  },
+  "libffi": {
+    "version": "3.6.0",
+    "purl": "pkg:generic/libffi",
+    "source": {
+      "url_pattern": "https://github.com/libffi/libffi/releases/download/v{version}/libffi-{version}.tar.gz"
+    }
+  },
+  "bzip2": {
+    "version": "1.0.8",
+    "purl": "pkg:generic/bzip2",
+    "source": {
+      "url_pattern": "https://sourceware.org/pub/bzip2/bzip2-{version}.tar.gz"
+    }
+  },
+  "xz": {
+    "version": "5.8.3",
+    "purl": "pkg:generic/xz",
+    "source": {
+      "url_pattern": "https://tukaani.org/xz/xz-{version}.tar.gz"
+    }
+  }
+}
+
