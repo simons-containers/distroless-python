@@ -1,7 +1,3 @@
-![Latest](https://ghcr-badge.egpl.dev/simons-containers/distroless-python/latest_tag?ignore=latest,sha256*&label=latest)  
-![Size](https://ghcr-badge.egpl.dev/simons-containers/distroless-python/size?tag=latest)  
-![Tags](https://ghcr-badge.egpl.dev/simons-containers/distroless-python/tags?ignore=latest,sha256*)  
-
 # Distroless Python container
 
 Bare-bones distroless Python container image.
