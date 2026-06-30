@@ -4,24 +4,13 @@
 
 Bare-bones distroless Python container image.
 
-## Building
 
-| Build Arg | Description |
-|---|---|
-| `PYTHON_VERSION` | Version of python to use
-| `GCC_VERSION` | Version of gcc to use
-| `ZLIB_VERSION` | Version of zlib to use
-| `OPENSSL_VERSION` | Version of openssl to use
-| `NCURSES_VERSION` | Version of ncurses to use
-| `READLINE_VERSION` | Version of readline to use
-| `LIBFFI_VERSION` | Version of libffi to use
-| `BZIP2_VERSION` | Version of bzip2 to use
-| `XZ_VERSION` | Version of xz to use
+## Running
 
-Build container using build-args from versions.yaml:
+No `ENTRYPOINT` is specified in the base container.
 
 ```bash
-docker build -t python $(yq -r 'to_entries | .[] | "--build-arg \(.key | ascii_upcase)_VERSION=\(.value)"' versions.yaml) -f Containerfile .
+docker run -it --rm ghcr.io/simons-containers/distroless-python:latest /usr/bin/python -m this
 ```
 
 ## License
