@@ -7,10 +7,10 @@ Bare-bones distroless Python container image.
 
 ## Running
 
-No `ENTRYPOINT` is specified in the base container.
+After version 3.14.6, `ENTRYPOINT` defaults to `/usr/bin/python`. No `ENTRYPOINT` is specified in previous versions.
 
 ```bash
-docker run -it --rm ghcr.io/simons-containers/distroless-python:latest /usr/bin/python -m this
+docker run -it --rm ghcr.io/simons-containers/distroless-python:latest -m this
 ```
 
 ## License
