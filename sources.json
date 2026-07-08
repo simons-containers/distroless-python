@@ -42,7 +42,7 @@
     }
   },
   "libffi": {
-    "version": "3.6.0",
+    "version": "3.7.0",
     "purl": "pkg:generic/libffi",
     "source": {
       "url_pattern": "https://github.com/libffi/libffi/releases/download/v{version}/libffi-{version}.tar.gz"
