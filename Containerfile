@@ -149,6 +149,7 @@ COPY --from=builder /base/usr/share/ /usr/share/
 COPY --from=builder /base/usr/bin/ /usr/bin/
 
 ENV PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+ENV REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
 ENTRYPOINT ["/usr/bin/python"]
 
