@@ -59,7 +59,7 @@
     "version": "5.8.4",
     "purl": "pkg:generic/xz",
     "source": {
-      "url_pattern": "https://tukaani.org/xz/xz-{version}.tar.gz"
+      "url_pattern": "https://github.com/tukaani-project/xz/releases/download/v{version}/xz-{version}.tar.gz"
     }
   }
 }
