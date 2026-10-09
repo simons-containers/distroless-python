@@ -1,6 +1,6 @@
 {
   "python": {
-    "version": "3.14.8",
+    "version": "3.15.0",
     "purl": "pkg:generic/python",
     "source": {
       "url_pattern": "https://www.python.org/ftp/python/{version}/Python-{version}.tgz"
