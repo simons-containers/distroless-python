@@ -36,7 +36,7 @@ jobs:
               | sort -V | tail -n 1)
             OPENSSL=$(git ls-remote --tags https://github.com/openssl/openssl \
               | awk -F/ '/[0-9]$/  && /openssl-/ && ! /-[a-z]/ {gsub("openssl-", ""); print $3}' \
-              | sort -V | grep -Ev '^4' | tail -1)
+              | sort -V | tail -1)
             READLINE=$(curl -sf https://ftp.gnu.org/gnu/readline/ \
               | grep -Eo 'readline-[0-9]+(\.[0-9]+)*\.tar\.gz' \
               | sed -E 's/readline-([0-9.]+)\.tar\.gz/\1/' \
