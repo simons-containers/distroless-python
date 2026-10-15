@@ -110,8 +110,11 @@ RUN curl --silent --show-error --location --output python.tar.gz \
         --with-openssl=/base/usr \
         --enable-shared \
         --with-ensurepip=install \
-    && make -s -j$(nproc) \
+    && ln -s /base/usr/lib/libcrypto.so.4 /usr/lib/libcrypto.so.4 \
+    && ln -s /base/usr/lib/libssl.so.4 /usr/lib/libssl.so.4 \
+    && make -j"$(nproc)" \
     && make install DESTDIR=/base \
+    && rm -f /usr/lib/libcrypto.so.4 /usr/lib/libssl.so.4 \
     && ln -s python3 /base/usr/bin/python \
     && ln -s pip3 /base/usr/bin/pip
 
