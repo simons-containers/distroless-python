@@ -17,7 +17,7 @@
     "version": "1.4",
     "purl": "pkg:generic/zlib",
     "source": {
-      "url_pattern": "https://zlib.net/zlib-{version}.tar.gz"
+      "url_pattern": "https://github.com/madler/zlib/archive/refs/tags/v{version}.tar.gz"
     }
   },
   "openssl": {
