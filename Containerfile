@@ -23,7 +23,9 @@ ARG XZ_SOURCE
 RUN pacman -Syu --noconfirm python wget >/dev/null
 
 WORKDIR /build/gcc
-RUN curl --silent --show-error --location --output gcc.tar.gz \
+RUN curl --silent --show-error --location \
+    --retry 5 --retry-max-time 30 \
+    --output gcc.tar.gz \
     "${GCC_SOURCE}" \
     && tar xf gcc.tar.gz --strip-components=1 \
     && ./contrib/download_prerequisites \
@@ -41,7 +43,9 @@ RUN curl --silent --show-error --location --output gcc.tar.gz \
     && make install-target-libstdc++-v3 DESTDIR=/base
 
 WORKDIR /build/zlib
-RUN curl --silent --show-error --location --output zlib.tar.gz \
+RUN curl --silent --show-error --location \
+    --retry 5 --retry-max-time 30 \
+    --output zlib.tar.gz \
     "${ZLIB_SOURCE}" \
     && tar xf zlib.tar.gz --strip-components=1 \
     && ./configure --prefix=/usr \
@@ -49,7 +53,9 @@ RUN curl --silent --show-error --location --output zlib.tar.gz \
     && make install DESTDIR=/base
 
 WORKDIR /build/openssl
-RUN curl --silent --show-error --location --output openssl.tar.gz \
+RUN curl --silent --show-error --location \
+    --retry 5 --retry-max-time 30 \
+    --output openssl.tar.gz \
     "${OPENSSL_SOURCE}" \
     && tar xf openssl.tar.gz --strip-components=1 \
     && ./Configure linux-x86_64 --prefix=/usr --libdir=/usr/lib no-tests no-docs \
@@ -58,7 +64,9 @@ RUN curl --silent --show-error --location --output openssl.tar.gz \
     && make install_sw DESTDIR=/base
 
 WORKDIR /build/ncurses
-RUN curl --silent --show-error --location --output ncurses.tar.gz \
+RUN curl --silent --show-error --location \
+    --retry 5 --retry-max-time 30 \
+    --output ncurses.tar.gz \
     "${NCURSES_SOURCE}" \
     && tar xf ncurses.tar.gz --strip-components=1 \
     && ./configure --prefix=/usr --with-shared --without-debug \
@@ -67,7 +75,9 @@ RUN curl --silent --show-error --location --output ncurses.tar.gz \
     && make install DESTDIR=/base
 
 WORKDIR /build/readline
-RUN curl --silent --show-error --location --output readline.tar.gz \
+RUN curl --silent --show-error --location \
+    --retry 5 --retry-max-time 30 \
+    --output readline.tar.gz \
     "${READLINE_SOURCE}" \
     && tar xf readline.tar.gz --strip-components=1 \
     && CPPFLAGS="-I/base/usr/include" LDFLAGS="-L/base/usr/lib" \
@@ -76,7 +86,9 @@ RUN curl --silent --show-error --location --output readline.tar.gz \
     && make install DESTDIR=/base
 
 WORKDIR /build/libffi
-RUN curl --silent --show-error --location --output libffi.tar.gz \
+RUN curl --silent --show-error --location \
+    --retry 5 --retry-max-time 30 \
+    --output libffi.tar.gz \
     "${LIBFFI_SOURCE}" \
     && tar xf libffi.tar.gz --strip-components=1 \
     && ./configure --prefix=/usr --disable-static \
@@ -84,14 +96,18 @@ RUN curl --silent --show-error --location --output libffi.tar.gz \
     && make install DESTDIR=/base
 
 WORKDIR /build/bzip2
-RUN curl --silent --show-error --location --output bzip2.tar.gz \
+RUN curl --silent --show-error --location \
+    --retry 5 --retry-max-time 30 \
+    --output bzip2.tar.gz \
     "${BZIP2_SOURCE}" \
     && tar xf bzip2.tar.gz --strip-components=1 \
     && make -s -j$(nproc) CFLAGS="-fPIC -O2" \
     && make install PREFIX=/usr DESTDIR=/base
 
 WORKDIR /build/xz
-RUN curl --silent --show-error --location --output xz.tar.gz \
+RUN curl --silent --show-error --location \
+    --retry 5 --retry-max-time 30 \
+    --output xz.tar.gz \
     "${XZ_SOURCE}" \
     && tar xf xz.tar.gz --strip-components=1 \
     && ./configure --prefix=/usr --disable-static \
@@ -99,7 +115,9 @@ RUN curl --silent --show-error --location --output xz.tar.gz \
     && make install DESTDIR=/base
 
 WORKDIR /build/python
-RUN curl --silent --show-error --location --output python.tar.gz \
+RUN curl --silent --show-error --location \
+    --retry 5 --retry-max-time 30 \
+    --output python.tar.gz \
     "${PYTHON_SOURCE}" \
     && tar xf python.tar.gz --strip-components=1 \
     && CPPFLAGS="-I/base/usr/include" LDFLAGS="-L/base/usr/lib" \
